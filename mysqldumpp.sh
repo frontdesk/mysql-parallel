@@ -58,5 +58,5 @@ mkdir -p "$DESTINATION"
 
 # Run one job for each table we are dumping.
 time echo $TABLES |
-$PARALLEL -d ' ' --trim=rl -I ,  echo "Dumping table ,." \&\& mysqldump -C -u$USER -p"'$PASS'" -h$HOST -P$PORT --skip-lock-tables --add-drop-table $DATABASE  , \| $BZIP2 \> $DESTINATION/,.sql.bz2
+$PARALLEL -d ' ' --trim=rl -I ,  echo "Dumping table ,." \&\& mysqldump -C -u$USER -p"'$PASS'" -h$HOST -P$PORT --skip-lock-tables $,_dump_opts --add-drop-table $DATABASE  , \| $BZIP2 \> $DESTINATION/,.sql.bz2
 
